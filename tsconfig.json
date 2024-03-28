@@ -1,4 +1,9 @@
 {
+    "compilerOptions": {
+        "lib": ["DOM", "ESNext"],
+        "target": "ES2019",
+        "declaration": true
+    },
     "extends": "@diplodoc/tsconfig",
     "include": ["src"]
 }

@@ -2,24 +2,55 @@
   "name": "@diplodoc/radiobutton",
   "version": "0.0.1",
   "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "homepage": "https://github.com/diplodoc-platform/radiobutton-extension#readme",
+  "bugs": {
+    "url": "https://github.com/diplodoc-platform/radiobutton-extension/issues"
   },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/diplodoc-platform/radiobutton-extension.git"
   },
-  "author": "v8tenko",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/diplodoc-platform/radiobutton-extension/issues"
+  "author": "v8tenko",
+  "exports": {
+    ".": {
+      "types": "./plugin/index.d.ts",
+      "default": "./plugin/index.js"
+    },
+    "./runtime": {
+      "types": "./runtime/index.d.ts",
+      "style": "./runtime/index.css",
+      "default": "./runtime/index.js"
+    },
+    "./react": {
+      "types": "./react/index.d.ts",
+      "default": "./react/index.js"
+    }
   },
-  "homepage": "https://github.com/diplodoc-platform/radiobutton-extension#readme",
+  "main": "plugin/index.js",
+  "types": "plugin/index.d.ts",
+  "scripts": {
+    "build": "run-p build:*",
+    "build:declarations": "tsc --emitDeclarationOnly --outDir .",
+    "build:js": "./esbuild/build.mjs",
+    "test": "vitest"
+  },
+  "dependencies": {
+    "github-slugger": "^2.0.0",
+    "markdown-it": "^14.1.0",
+    "react": "^18.2.0"
+  },
   "devDependencies": {
     "@diplodoc/eslint-config": "^2.0.0",
     "@diplodoc/prettier-config": "^2.0.0",
     "@diplodoc/tsconfig": "^1.0.2",
-    "typescript": "^5.4.3"
+    "@types/markdown-it": "^13.0.7",
+    "@types/node": "^20.11.30",
+    "@types/react": "^18.2.72",
+    "esbuild": "^0.20.2",
+    "esbuild-sass-plugin": "^3.2.0",
+    "npm-run-all": "^4.1.5",
+    "typescript": "^5.4.3",
+    "vitest": "^1.4.0"
   }
 }
