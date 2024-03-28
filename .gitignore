@@ -1,5 +1,5 @@
 /node_modules/
-react
-runtime
-plugin
+/react
+/runtime
+/plugin
 common.d.ts
